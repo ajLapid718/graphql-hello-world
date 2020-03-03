@@ -3,6 +3,16 @@
 
 const { ApolloServer, gql } = require("apollo-server");
 
+/* TOPICS
+
+Type Checking
+Query vs. Mutation
+Objects
+Arrays
+Arguments
+
+*/
+
 // this type definition enforces the expected data type of the return value from the resolver (it will attempt to cast the return value to this data type as a natural behavior);
 const typeDefs = gql`
   type Query {
