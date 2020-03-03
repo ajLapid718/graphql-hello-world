@@ -10,6 +10,7 @@ Query vs. Mutation
 Objects
 Arrays
 Arguments
+Custom Types
 
 */
 
@@ -29,6 +30,15 @@ const typeDefs = gql`
   type Query {
     hello: String!
   }
+
+  type User {
+    id: ID!
+    username: String!
+  }
+
+  type Mutation {
+    register: User
+  }
 `;
 
 // the "!" character denotes a non-nullable field;
@@ -37,6 +47,15 @@ const resolvers = {
   Query: {
     hello: function() {
       return null;
+    }
+  },
+
+  Mutation: {
+    register: function() {
+      return {
+        id: 1,
+        username: "bob"
+      }
     }
   }
 };
