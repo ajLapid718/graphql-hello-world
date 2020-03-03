@@ -10,10 +10,12 @@ const typeDefs = gql`
   }
 `;
 
+// the "!" character denotes a non-nullable field;
+// if we return a value of "null" when we have a non-null type definition in place, we will generate an error;
 const resolvers = {
   Query: {
     hello: function() {
-      return "Hello World";
+      return null;
     }
   }
 };
