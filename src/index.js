@@ -51,7 +51,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    register: RegisterResponse!
+    register(username: String!, password: String! age: Int): RegisterResponse!
+    login(username: String!, password: String!, age: Int): Boolean!
   }
 `;
 
@@ -65,9 +66,12 @@ const resolvers = {
   },
 
   Mutation: {
+    login: function() {
+      return true;
+    },
     register: function() {
       return { 
-        errors: [{ field: "username", message: "bad" }, null],
+        errors: [{ field: "username", message: "bad" }, { field: "id", message: "bad"}],
         user: {
           id: 1,
           username: "bob"
