@@ -33,6 +33,7 @@ Delete - Mutation
 const typeDefs = gql`
   type Query {
     hello: String!
+    user: User!
   }
 
   type User {
@@ -63,11 +64,21 @@ const typeDefs = gql`
 `;
 
 // the "!" character denotes a non-nullable field;
-// if we return a value of "null" when we have a non-null type definition in place, we will generate an error;
+// if we return a value of "null" when we have a non-null type definition in place, we will generate an
+// error;
+
+// Query: these run in parallel;
+// Mutation: these run sequentially;
 const resolvers = {
   Query: {
     hello: function() {
-      return null;
+      return "hello world";
+    },
+    user: function () {
+      return {
+        id: 1,
+        username: "bob"
+      }
     }
   },
 
