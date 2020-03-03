@@ -13,6 +13,17 @@ Arguments
 
 */
 
+/* CRUD
+
+Create, Read, Update, Delete
+
+Create - Mutation
+Read - Query
+Update - Mutation
+Delete - Mutation
+
+*/
+
 // this type definition enforces the expected data type of the return value from the resolver (it will attempt to cast the return value to this data type as a natural behavior);
 const typeDefs = gql`
   type Query {
