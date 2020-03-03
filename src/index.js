@@ -25,7 +25,11 @@ Delete - Mutation
 
 */
 
-// this type definition enforces the expected data type of the return value from the resolver (it will attempt to cast the return value to this data type as a natural behavior);
+// this type definition enforces the expected data type of the return value from the resolver (it will
+// attempt to cast the return value to this data type as a natural behavior);
+// when you have a list of GraphQL objects, you can ensure that the list itself does not resolve to null,
+// and in addition to that, you can ensure that the elements within the list do not resolve to null
+// either: [Error!]!;
 const typeDefs = gql`
   type Query {
     hello: String!
@@ -42,7 +46,7 @@ const typeDefs = gql`
   }
 
   type RegisterResponse {
-    errors: [Error]
+    errors: [Error!]!
     user: User
   }
 
@@ -63,7 +67,7 @@ const resolvers = {
   Mutation: {
     register: function() {
       return { 
-        errors: [{ field: "username", message: "bad" }],
+        errors: [{ field: "username", message: "bad" }, null],
         user: {
           id: 1,
           username: "bob"
