@@ -3,16 +3,17 @@
 
 const { ApolloServer, gql } = require("apollo-server");
 
+// this type definition enforces the expected data type of the return value from the resolver (it will attempt to cast the return value to this data type as a natural behavior);
 const typeDefs = gql`
   type Query {
-    hello: String!
+    hello: Int!
   }
 `;
 
 const resolvers = {
   Query: {
     hello: function() {
-      return "hello world";
+      return "5";
     }
   }
 };
