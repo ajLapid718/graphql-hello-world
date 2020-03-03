@@ -36,8 +36,12 @@ const typeDefs = gql`
     username: String!
   }
 
+  type RegisterResponse {
+    user: User
+  }
+
   type Mutation {
-    register: User
+    register: RegisterResponse!
   }
 `;
 
@@ -52,9 +56,11 @@ const resolvers = {
 
   Mutation: {
     register: function() {
-      return {
-        id: 1,
-        username: "bob"
+      return { 
+        user: {
+          id: 1,
+          username: "bob"
+        }
       }
     }
   }
