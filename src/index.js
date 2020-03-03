@@ -21,5 +21,5 @@ const server = new ApolloServer({ typeDefs, resolvers });
 
 // this will bootup our server on port 4000 by default;
 // to configure to a different port, pass in an options object to the listen function like below:
-// { port: 3000 };
-server.listen({ port: 3000 }).then((serverInfo) => console.log(`server started at ${serverInfo.url}`));
+// { port: 1234 };
+server.listen().then((serverInfo) => console.log(`server started at ${serverInfo.url}`));
